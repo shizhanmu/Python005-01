@@ -1,0 +1,15 @@
+*.pyc
+__pycache__
+venv
+media
+.DS_Store
+.vscode
+.sql
+.sqlite3
+*.zip
+*.exe
+*.pkg
+*.msi
+*.mp4
+*.seg
+*.toc
