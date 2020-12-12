@@ -8,7 +8,7 @@ import time
 
 def write_time():
     current_date = time.strftime("%Y-%m-%d", time.localtime())
-    p = Path("/var/log/python-{current_date}")
+    p = Path(f"/var/log/python-{current_date}")
     if not p.is_dir():
         p.mkdir(parents=True, exist_ok=True)
     file = p / "func_time.log"
@@ -24,6 +24,6 @@ def write_time():
 
 
 if __name__ == "__main__":
-    for i in range(10):
+    for i in range(5):
         write_time()
         time.sleep(1)
