@@ -8,11 +8,10 @@ import time
 
 def write_time():
     current_date = time.strftime("%Y-%m-%d", time.localtime())
-    p = Path("/var/log/")
-    new_p = p / f"python-{current_date}"
-    if not new_p.exists():
-        new_p.mkdir()
-    file = new_p / "func_time.log"
+    p = Path("/var/log/python-{current_date}")
+    if not p.is_dir():
+        p.mkdir(parents=True, exist_ok=True)
+    file = p / "func_time.log"
     if not file.exists():
         file.touch()
     logging.basicConfig(
