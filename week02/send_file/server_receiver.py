@@ -1,3 +1,6 @@
+# 不使用开源框架，基于 TCP 协议改造 echo 服务端和客户端代码，实现服务端和客户端
+# 可以传输单个文件的功能。
+
 import socket
 import tqdm
 from pathlib import Path

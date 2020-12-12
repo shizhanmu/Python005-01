@@ -1,3 +1,6 @@
+# 使用 requests 库抓取知乎任意一个话题下排名前 15 条的答案内容 
+# (如果对前端熟悉请抓取所有答案)，并将内容保存到本地的一个文件。
+
 import requests
 from pathlib import Path
 import json
