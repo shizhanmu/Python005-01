@@ -192,4 +192,11 @@ EXPLAIN可以检查SQL语句中是否使用了索引：
 ```sql
 mysql> explain SELECT Table1.id, Table1.name, Table2.id, Table2.name
             FROM Table1 LEFT JOIN Table2 ON Table1.name = Table2.name;
++----+-------------+--------+------------+-------+-------------------+-------------------+---------+--------------------+------+----------+-------------+
+| id | select_type | table  | partitions | type  | possible_keys     | key               | key_len | ref                | rows | filtered | Extra       |
++----+-------------+--------+------------+-------+-------------------+-------------------+---------+--------------------+------+----------+-------------+
+|  1 | SIMPLE      | Table1 | NULL       | index | NULL              | table1_name_index | 1023    | NULL               | 1992 |   100.00 | Using index |
+|  1 | SIMPLE      | Table2 | NULL       | ref   | table2_name_index | table2_name_index | 1023    | testdb.Table1.name |    2 |   100.00 | Using index |
++----+-------------+--------+------------+-------+-------------------+-------------------+---------+--------------------+------+----------+-------------+
+2 rows in set (0.08 sec)
 ```
