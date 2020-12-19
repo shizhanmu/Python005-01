@@ -6,7 +6,7 @@
 import pymysql
 from datetime import datetime
 from sqlalchemy import DateTime
-from sqlalchemy import create_engine, Table, Column, Integer, String, Date, MetaData, ForeignKey
+from sqlalchemy import create_engine, Table, Column, Integer, String, Date, Enum, MetaData, ForeignKey
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
@@ -26,7 +26,7 @@ class User_table(Base):
     def __repr__(self):
         return f"User_table(id={self.id}, username={self.username}, gender={self.gender})"
 
-dburl = "mysql+pymysql://testuser:123456@localhost:3306/testdb?charset=utf8mb4"
+dburl = "mysql+pymysql://testuser:tert1234@localhost:3306/testdb?charset=utf8mb4"
 engine = create_engine(dburl, echo=True, encoding="utf-8")
 # Base.metadata.create_all(engine)
 
@@ -37,7 +37,7 @@ session = SessionClass()
 user1 = User_table(username="姜子牙", age="99", birthday="1188-01-02", gender="男", education="博士")
 user2 = User_table(username="申公豹", age="88", birthday="1158-01-02", gender="男", education="硕士")
 user3 = User_table(username="苏妲己", age="25", birthday="1118-01-02", gender="男", education="本科")
-# session.add(user1)
+session.add(user1)
 session.add(user2)
 session.add(user3)
 session.commit()

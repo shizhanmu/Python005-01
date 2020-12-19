@@ -2,7 +2,7 @@
 import time
 from random import randint
 import pymysql
-from dbconfig import read_db_config
+from utils.dbconfig import read_db_config
 
 dbserver = read_db_config()
 db = pymysql.connect(**dbserver)
