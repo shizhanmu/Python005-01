@@ -1,0 +1,36 @@
+[33m[WARNING] [MainThread] [2020-12-19 10:27:08] [transfer_accounts.py:82] 被转账 id 1 余额不足！[0m
+[32m[INFO] [MainThread] [2020-12-19 10:53:28] [transfer_accounts.py:132] 从 1 到 2 转账 5 极客币成功[0m
+[33m[WARNING] [MainThread] [2020-12-19 10:55:08] [transfer_accounts.py:86] 被转账 id 1 余额不足！[0m
+[32m[INFO] [MainThread] [2020-12-19 10:55:26] [transfer_accounts.py:131] 从 1 到 20 转账 5 极客币成功[0m
+[33m[WARNING] [MainThread] [2020-12-19 10:55:26] [transfer_accounts.py:86] 被转账 id 1 余额不足！[0m
+[32m[INFO] [MainThread] [2020-12-19 11:04:12] [transfer_accounts.py:75] 初始化成功，创建了 3 张数据库表：user, asset, record。[0m
+[32m[INFO] [MainThread] [2020-12-19 11:05:53] [transfer_accounts.py:80] id号 20 不存在[0m
+[32m[INFO] [MainThread] [2020-12-19 11:07:59] [transfer_accounts.py:96] 创建用户 李四， id号：2 [0m
+[32m[INFO] [MainThread] [2020-12-19 11:07:59] [transfer_accounts.py:80] id号 20 不存在[0m
+[33m[WARNING] [MainThread] [2020-12-19 11:09:53] [transfer_accounts.py:80] id号 20 不存在[0m
+[33m[WARNING] [MainThread] [2020-12-19 11:26:48] [transfer_accounts.py:166] 被转账 id 1 余额不足！[0m
+[32m[INFO] [MainThread] [2020-12-19 11:31:00] [transfer_accounts.py:134] 账户 id 号：1，变动金额：20.0。[0m
+[32m[INFO] [MainThread] [2020-12-19 11:31:13] [transfer_accounts.py:134] 账户 id 号：1 ，变动金额：30.0。[0m
+[32m[INFO] [MainThread] [2020-12-19 11:35:10] [transfer_accounts.py:135] 账户 id 号：1 ，变动金额：10.0 ，当前余额：40.0 。[0m
+[32m[INFO] [MainThread] [2020-12-19 11:41:19] [transfer_accounts.py:146] 账户 id 号：2 ，变动金额：0.0 ，当前余额：0.0 。[0m
+[32m[INFO] [MainThread] [2020-12-19 11:41:19] [transfer_accounts.py:173] 从 1 到 2 转账 5 极客币成功[0m
+[32m[INFO] [MainThread] [2020-12-19 11:45:32] [transfer_accounts.py:146] 账户 id 号：1 ，变动金额：-5 ，当前余额：30.0 。[0m
+[32m[INFO] [MainThread] [2020-12-19 11:45:32] [transfer_accounts.py:146] 账户 id 号：2 ，变动金额：5 ，当前余额：10.0 。[0m
+[32m[INFO] [MainThread] [2020-12-19 11:45:32] [transfer_accounts.py:175] 从 1 到 2 转账 5 极客币成功[0m
+[32m[INFO] [MainThread] [2020-12-19 11:47:15] [transfer_accounts.py:146] 账户 id 号：1 ，变动金额：-5 ，当前余额：25.0 。[0m
+[32m[INFO] [MainThread] [2020-12-19 11:47:15] [transfer_accounts.py:146] 账户 id 号：2 ，变动金额：5 ，当前余额：15.0 。[0m
+[32m[INFO] [MainThread] [2020-12-19 11:47:15] [transfer_accounts.py:169] 从 1 到 2 转账 5 极客币成功[0m
+[32m[INFO] [MainThread] [2020-12-19 11:47:26] [transfer_accounts.py:146] 账户 id 号：1 ，变动金额：-5 ，当前余额：20.0 。[0m
+[32m[INFO] [MainThread] [2020-12-19 11:47:26] [transfer_accounts.py:146] 账户 id 号：2 ，变动金额：5 ，当前余额：20.0 。[0m
+[31m[ERROR] [MainThread] [2020-12-19 11:48:04] [transfer_accounts.py:171] 发生数据库错误, 回滚[0m
+[31m[ERROR] [MainThread] [2020-12-19 11:48:09] [transfer_accounts.py:172] (mysql.connector.errors.ProgrammingError) 1146 (42S02): Table 'geekbank.record' doesn't exist
+[SQL: INSERT INTO record (trans_time, from_id, to_id, amount) VALUES (%(trans_time)s, %(from_id)s, %(to_id)s, %(amount)s)]
+[parameters: {'trans_time': datetime.datetime(2020, 12, 19, 3, 48, 1, 21563), 'from_id': 1, 'to_id': 2, 'amount': 5}]
+(Background on this error at: http://sqlalche.me/e/13/f405)[0m
+[32m[INFO] [MainThread] [2020-12-19 11:55:23] [transfer_accounts.py:77] 初始化成功，创建了 3 张数据库表：user, asset, record。[0m
+[33m[WARNING] [MainThread] [2020-12-19 11:55:42] [transfer_accounts.py:90] id号 20 不存在[0m
+[33m[WARNING] [MainThread] [2020-12-19 11:55:50] [transfer_accounts.py:175] 被转账 id 1 余额不足！[0m
+[32m[INFO] [MainThread] [2020-12-19 11:56:29] [transfer_accounts.py:146] 账户 id 号：1 ，变动金额：10000.0 ，当前余额：10020.0 。[0m
+[32m[INFO] [MainThread] [2020-12-19 11:56:29] [transfer_accounts.py:146] 账户 id 号：1 ，变动金额：-500 ，当前余额：9520.0 。[0m
+[32m[INFO] [MainThread] [2020-12-19 11:56:29] [transfer_accounts.py:146] 账户 id 号：2 ，变动金额：500 ，当前余额：520.0 。[0m
+[32m[INFO] [MainThread] [2020-12-19 11:56:29] [transfer_accounts.py:169] 从 1 到 2 转账 500 极客币成功[0m
