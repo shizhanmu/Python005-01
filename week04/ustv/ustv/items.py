@@ -12,7 +12,8 @@ class UstvItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
     subject_id = scrapy.Field()
+    title = scrapy.Field()
     nickname = scrapy.Field()
     rating = scrapy.Field()
     posttime = scrapy.Field()
-    shorttext = scrapy.Field()
+    shortcomment = scrapy.Field()

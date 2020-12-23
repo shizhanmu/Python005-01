@@ -27,7 +27,7 @@ ROBOTSTXT_OBEY = True
 # Configure a delay for requests for the same website (default: 0)
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-#DOWNLOAD_DELAY = 3
+DOWNLOAD_DELAY = 3
 # The download delay setting will honor only one of:
 #CONCURRENT_REQUESTS_PER_DOMAIN = 16
 #CONCURRENT_REQUESTS_PER_IP = 16
@@ -38,11 +38,25 @@ ROBOTSTXT_OBEY = True
 # Disable Telnet Console (enabled by default)
 #TELNETCONSOLE_ENABLED = False
 
+RETRY_ENABLE = True
+
+RETRY_TIMES = 10
+
+DOWNLOAD_TIMEOUT = 10
+
+
 # Override the default request headers:
-#DEFAULT_REQUEST_HEADERS = {
-#   'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-#   'Accept-Language': 'en',
-#}
+DEFAULT_REQUEST_HEADERS = {
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+    'Accept-Encoding': 'gzip, deflate, br',
+    'Accept-Language': 'en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7,zh-TW;q=0.6,ja;q=0.5',
+    'Cache-Control': 'max-age=0',
+    'Connection': 'keep-alive',
+    'Host': 'movie.douban.com',
+    'Referer': 'www.baidu.com',
+    'Upgrade-Insecure-Requests': '1',
+    'User-Agent': '''Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36'''
+}
 
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
@@ -52,9 +66,37 @@ ROBOTSTXT_OBEY = True
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
-#DOWNLOADER_MIDDLEWARES = {
-#    'ustv.middlewares.UstvDownloaderMiddleware': 543,
-#}
+DOWNLOADER_MIDDLEWARES = {
+    'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware':123,
+    'ustv.ippool.Ippool' : 125,
+    'ustv.middlewares.UstvDownloaderMiddleware': None,
+}
+
+IPPOOL = [
+"89.187.177.93:80",
+"60.172.83.18:4278",
+"58.218.214.200:3526",
+"114.103.176.246:4285",
+"58.218.201.122:8730", 
+"58.218.200.253:9538", 
+"58.218.201.114:9101", 
+"58.218.214.192:8212", 
+"58.218.201.114:9419", 
+"58.218.214.179:6231", 
+"58.218.214.206:2933", 
+"58.218.201.122:9244", 
+"58.218.214.205:7847", 
+"58.218.201.114:7896", 
+"58.218.214.208:3160", 
+"58.218.214.200:8570", 
+"58.218.214.202:9900", 
+"58.218.200.249:8544", 
+"58.218.201.87:8949", 
+"58.218.201.74:6018", 
+"58.218.214.179:7719", 
+"58.218.214.193:7386", 
+"58.218.201.87:9908", 
+]
 
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html
@@ -64,9 +106,9 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'ustv.pipelines.UstvPipeline': 300,
-#}
+ITEM_PIPELINES = {
+   'ustv.pipelines.UstvPipeline': 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html

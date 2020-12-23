@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- encoding: utf-8 -*-
+
 from configparser import ConfigParser
 
 
@@ -10,7 +13,7 @@ def read_db_config(filename='config.ini', section='mysql'):
     """
     # create parser and read ini configuration file
     parser = ConfigParser()
-    parser.read(filename)
+    parser.read(filename, encoding='utf-8')
     
     # get section, default to mysql
     if parser.has_section(section):
