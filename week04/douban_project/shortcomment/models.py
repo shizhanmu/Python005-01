@@ -14,7 +14,7 @@ class Short(models.Model):
     class Meta:
         verbose_name = "短评"
         verbose_name_plural = "短评"
-        ordering = ["-posttime"]
+        ordering = ["pk"]
     
     def __str__(self):
         return self.shorttext

@@ -1,0 +1,52 @@
+  
+{% extends "shortcomment/base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+    <div class="col-lg-12">
+        <h2 class="page-header">搜索到 {{ shorts | length }} 个结果：</h2>
+    </div>
+    <table class="table">
+        <thead class="thead-light">
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">短评</th>
+            <th scope="col" class="text-nowrap">星级</th>
+            <th scope="col" width="20%">电影名称</th>
+            <th scope="col">评论时间</th>
+        </tr>
+        </thead>
+        {% for short in shorts %}
+            <tbody>
+            <tr>
+                <th>{{ short.id }}</th>
+                <td>{{ short.shorttext }}</td>
+                <td>{{ short.rating }}</td>
+                <td>{{ short.title }}</td>
+                <td class="text-nowrap">{{ short.posttime }}</td>
+            </tr>
+            </tbody>
+        {% endfor %}
+    </table>
+    <div class="pagination">
+        <span class="step-links">
+            {% if shorts.has_previous %}
+                <a href="?q={{ q }}&page=1">&laquo; 首页</a>
+                <a href="?q={{ q }}&page={{ shorts.previous_page_number }}">上一页</a>
+            {% endif %}
+            <span class="current">
+                第 {{ shorts.number }} 页 (共 {{ shorts.paginator.num_pages }})
+            </span>
+
+            {% if shorts.has_next %}
+                <a href="?q={{ q }}&page={{ shorts.next_page_number }}">下一页</a>
+                <a href="?q={{ q }}&page={{ shorts.paginator.num_pages }}">尾页 &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+</div>
+
+
+
+{% endblock %}
