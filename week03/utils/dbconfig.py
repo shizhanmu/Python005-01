@@ -1,7 +1,15 @@
+#!/usr/bin/env python
+# -*- encoding: utf-8 -*-
+
+from pathlib import Path
 from configparser import ConfigParser
 
+# Get the relative path of the config.ini file.
+p = Path(__file__)
+dirname = p.parent
+config_file = dirname / 'config.ini'
 
-def read_db_config(filename='config.ini', section='mysql'):
+def read_db_config(filename=config_file, section='mysql'):
     """Read database configuration file and return a dictionary object
 
     Args:
@@ -10,8 +18,8 @@ def read_db_config(filename='config.ini', section='mysql'):
     """
     # create parser and read ini configuration file
     parser = ConfigParser()
-    parser.read(filename)
-    
+    parser.read(filename, encoding='utf-8')
+
     # get section, default to mysql
     if parser.has_section(section):
         items = parser.items(section)
@@ -22,3 +30,4 @@ def read_db_config(filename='config.ini', section='mysql'):
 
 if __name__ == "__main__":
     print(read_db_config())
+    # pass
