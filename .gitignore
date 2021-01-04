@@ -2,6 +2,7 @@
 __pycache__
 venv
 media
+migrations
 .DS_Store
 .vscode
 .sql
