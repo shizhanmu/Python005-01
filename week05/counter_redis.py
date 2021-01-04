@@ -25,14 +25,13 @@ client = redis.Redis(host='0.0.0.0', password='123456')
 
 
 def counter(video_id: int):
-    client.incr(video_id)
-    count_number = client.get(video_id).decode()
-    print(count_number)
-    return count_number
+    result = client.incr(video_id)
+    print(result)
+    return result
 
 if __name__ == "__main__":
     counter(1001)
     counter(1001)
     counter(1002)
     counter(1001)
-    counter(1002)
+
