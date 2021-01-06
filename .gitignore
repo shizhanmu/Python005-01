@@ -2,6 +2,7 @@
 __pycache__
 venv
 media
+migrations
 .DS_Store
 .vscode
 .sql
@@ -13,3 +14,4 @@ media
 *.mp4
 *.seg
 *.toc
+dump.rdb
