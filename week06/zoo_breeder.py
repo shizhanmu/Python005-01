@@ -17,7 +17,6 @@
 
 from abc import ABCMeta, abstractmethod
 
-
 class EnumException(BaseException):
     """自定义异常类"""
     pass
@@ -92,7 +91,7 @@ class Animal(metaclass=ABCMeta):
             self.character == "凶猛"
     
     @abstractmethod
-    def make_sound(self):
+    def __repr__(self):
         pass
 
 
@@ -109,9 +108,6 @@ class Cat(Animal):
     @property
     def is_pet(self):
         return not self.is_beast
-    
-    def make_sound(self):
-        print("make sound:", self.voice)
         
     def __repr__(self):
         return f'<{self.__class__.__name__} object: {self.name}, id: {self.id}>'
@@ -130,9 +126,6 @@ class Dog(Animal):
     @property
     def is_pet(self):
         return not self.is_beast
-    
-    def make_sound(self):
-        print("make sound:", self.voice)
     
     def __repr__(self):
         return f'<{self.__class__.__name__} object: {self.name}, id: {self.id}>'
