@@ -9,12 +9,12 @@ class simplemap:
         return self
 
     def __next__(self):
-        if len(self.sequences) > 0:
-            minlen = min(len(subseq) for subseq in self.sequences)
-            if self.i <= minlen:
-                self.i += 1
-                return self.func(*[list(subseq)[self.i] for subseq in self.sequences])
-
+        try:
+            self.i += 1
+            return self.func(*[list(subseq)[self.i] for subseq in self.sequences])
+        except IndexError as e:
+            raise StopIteration
+        
 def mapper(func, *sequences):
     """用函数方式实现 map 的功能"""
     if len(sequences) > 0:
