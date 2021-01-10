@@ -12,7 +12,7 @@ class simplemap:
         try:
             self.i += 1
             return self.func(*[list(subseq)[self.i] for subseq in self.sequences])
-        except IndexError as e:
+        except IndexError:
             raise StopIteration
         
 def mapper(func, *sequences):
