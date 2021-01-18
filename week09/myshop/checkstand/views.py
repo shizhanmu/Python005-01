@@ -47,9 +47,11 @@ def order_cancelling(request, id):
         conn.close()
 
 @api_view(['GET', 'POST'])
-@authentication_classes([SessionAuthentication, BasicAuthentication])
+@authentication_classes([SessionAuthentication, TokenAuthentication, BasicAuthentication])
 @permission_classes([IsAuthenticated])
 def order_create(request):
+    if request.method == 'GET':
+        return Response(None, status=status.HTTP_200_OK)
     serializer = OrderSerializer(data=request.data)
 
     if serializer.is_valid():
