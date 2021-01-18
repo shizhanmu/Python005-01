@@ -13,7 +13,19 @@
 mysql数据库测试用户名：zoo，密码：animal123456
 
 
+## 作业二：
+基于 Django REST framework 实现用户接入控制功能
+
+说明：
+
+对作业一的 /orders/create 接口实现用户接入控制功能。
+可以使用 SessionAuthentication 或 TokenAuthentication 实现。
+选做：
+
+使用 Json-Web-Token（JWT）认证方式实现
+
 测试 token 认证：
+
 ```
 POST http://127.0.0.1:8000/api/v2/orders/create/ HTTP/1.1
 Content-Type: application/json

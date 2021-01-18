@@ -7,8 +7,6 @@ router = DefaultRouter()
 router.register(r'users', views.UserViewSet, )
 router.register(r'usersapi', views.CreateUserViewSet, 'user_api')
 router.register(r'orders', views.OrderViewSet, basename='orders')
-# router.register(r'orders/create', views.order_create, basename='create')
-# router.register(r'orders/<int: id>/cancel/', views.order_cancelling, basename='cancel')
 
 urlpatterns = [
     path('orders/create/', views.order_create),
