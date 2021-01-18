@@ -1,0 +1,11 @@
+# GET http://127.0.0.1:8000/orders/2
+# POST  http://127.0.0.1:8000/orders/ HTTP/1.1
+# content-type: application/json
+
+# {
+#     "product_id": "99999999999",
+#     "buyer": "ddddddddd"
+# }
+GET http://127.0.0.1:8000/orders/2 HTTP/1.1
+Content-Type: application/xml
+Authorization: token b2e114db3b8da6e5eb37193fe10716898f0a01c1
