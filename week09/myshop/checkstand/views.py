@@ -6,12 +6,13 @@ from rest_framework.parsers import JSONParser
 from .models import Order
 from .serializers import OrderSerializer, CreateUserSerializer, UserSerializer
 from rest_framework.decorators import api_view
+from rest_framework.decorators import authentication_classes, permission_classes
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework import generics
 from rest_framework import mixins
-from rest_framework.authentication import SessionAuthentication, TokenAuthentication, BaseAuthentication
+from rest_framework.authentication import SessionAuthentication, TokenAuthentication, BasicAuthentication
 from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
 from rest_framework import viewsets
 from django.shortcuts import get_object_or_404
@@ -46,6 +47,8 @@ def order_cancelling(request, id):
         conn.close()
 
 @api_view(['GET', 'POST'])
+@authentication_classes([SessionAuthentication, BasicAuthentication])
+@permission_classes([IsAuthenticated])
 def order_create(request):
     serializer = OrderSerializer(data=request.data)
 
