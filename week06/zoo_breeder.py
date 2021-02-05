@@ -16,6 +16,7 @@
 # 动物园类要求有“名字”属性和“添加动物”的方法，“添加动物”方法要实现同一只动物（同一个动物实例）不能被重复添加的功能。
 
 from abc import ABCMeta, abstractmethod
+from collections import defaultdict
 
 class EnumException(BaseException):
     """自定义异常类"""
@@ -136,7 +137,7 @@ class Zoo:
     """
     def __init__(self, name):
       self.name = name
-      self.animal_classes = set()
+      self.animal_classes = defaultdict(set())
     
     def add_animal(self, animal):
         if not isinstance(animal, Animal):
